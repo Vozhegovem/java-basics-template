@@ -63,8 +63,8 @@ public class SimpleMathService implements MathService {
     @Override
     public int[] getEvenDigits(int[] values) {
         int[] arr = Arrays.stream(values)
-                    .filter(value -> value % 2 == 0)
-                    .toArray();
+                .filter(value -> value % 2 == 0)
+                .toArray();
         return arr;
     }
 
@@ -95,12 +95,14 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFibonacci(int number) {
-        if (number == 0)
+        if (number == 0) {
             return 0;
+        }
         long prev = 0;
         long current = 1;
+        long next = 0;
         for (int i = 2; i <= number; i++) {
-            long next = prev + current;
+            next = prev + current;
             prev = current;
             current = next;
         }
@@ -126,7 +128,7 @@ public class SimpleMathService implements MathService {
     @Override
     public boolean isPrimary(int number) {
         for (int i = 2; i < number; i++) {
-            if (number % i == 0){
+            if (number % i == 0) {
                 return false;
             }
         }
@@ -141,7 +143,7 @@ public class SimpleMathService implements MathService {
     @Override
     public int[] reverseArray(int[] values) {
         int[] reverse = new int[values.length];
-        for (int i = 0; i < values.length; i++){
+        for (int i = 0; i < values.length; i++) {
             reverse[i] = values[values.length - i - 1];
         }
         return reverse;
